@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    font-family: 'Epilogue', sans-serif;
+    text-decoration: none;
+}
+
+body {
+    background-color: #faebd7;
+}
+.logo {
+    width: 18vw;
+    height: 30vh;
+}
+
+.main-header,
+.main-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.login-form {
+    background-color: #FFF4F4;
+    padding: 20px 40px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.text-input,
+.btn-login,
+.btn-login-google,
+.btn-register {
+    margin: 10px 0px;
+}
+
+.text-input {
+    width: 25vw;
+    height: 4vh;
+    border: none;
+    background-color: #dee4e3;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.error-message {
+    color: red;
+    display: none;
+}
+
+.register-text,
+.login-text {
+    margin-top: 20px;
+}
+
+.btn-login,
+.btn-login-google {
+    width: 15vw;
+    height: 6vh;
+    border-radius: 5px;
+    border: none;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: #FDAF51;
+}
+
+.container-btn-login {
+    margin: 0 20px;
+    display: contents;
+}
+
+.btn-login-google {
+    margin-top: 20px;
+    background-color: #ec6951;
+}
+
+.main-footer {
+    align-items: center;
+    text-align: center;
+    background-color: #FCD09C;
+    height: 6vh;
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+}
+.main-footer a {
+text-decoration:none;
+color:black;
+}
+
+@media (max-width:1279px) {
+    .logo {
+        width: 28vw;
+        height: 28vh;
+        margin-top: 15px;
+    }
+
+    .text-input {
+        width: 45vw;
+    }
+
+    .btn-login,
+    .btn-login-google {
+        width: 15vw;
+        height: 8vh;
+        font-size: 17px;
+    }
+}
+
+@media (max-width:768px) {
+    .logo {
+        width: 40vw;
+        height: 25vh;
+        margin-top: 15px;
+    }
+
+    .text-input {
+        width: 55vw;
+    }
+
+    .btn-login,
+    .btn-login-google {
+        width: 34vw;
+    }
+
+    .btn-login-google {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width:480px) {
+    .logo {
+        width: 55vw;
+        height: 28vh;
+    }
+
+    .login-form {
+        width: 60vw;
+    }
+
+    .labels-input {
+        font-size: 15px;
+        text-align: start;
+        margin: 5px 0px;
+    }
+
+    .text-input {
+        width: 55vw;
+
+    }
+
+    .btn-login,
+    .btn-login-google {
+        width: 38vw;
+        height: 6vh;
+        margin-top: 15px;
+        padding: 2px;
+        font-size: 15px;
+    }
+
+    .main-footer {
+        font-size: 14px;
+    }
+
+    .login-text {
+        font-size: 15px;
+    }
+
+}
