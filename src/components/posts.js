@@ -22,16 +22,20 @@ export function postComponent(postObj) {
         </ol>
       
       <div class='post-interations'>
-      <button id="cookie-btn"> Curtir </button>
+    
+      <div class='like-container'>
+       <button id='cookie-btn' class='button-like'>
+        <img class='like-icon like' src='./assets/cookie.png'>
+        <p class='likes-number'><span id='numLikes-${postObj.id}' class='num-likes'>${postObj.likes.length}</span></p>
+       </button>
+      </div>
 
-      <p class="num-likes">Likes:<span id="numLikes-${postObj.id}">${postObj.likes.length}</span></p>
-     
      ${isAuthor ? `
-
-      <button id="pencil-btn">Editar</button>
-      <button id="trash-btn">Apagar</button> 
-      <span id="edit-post"></span>
-      <span id="delete-post"></span>
+     <button class='interact-btn' id='pencil-btn'><img class='edit-pencil' src='./assets/pencil.png'>Editar</button>
+     <button class='interact-btn' id="trash-btn"><img class='delete-trash' src='./assets/trash.png'>Apagar</button> 
+    
+     <span id="edit-post"></span>
+     <span id="delete-post"></span>
       ` : ""}
   </div>  
     </div>

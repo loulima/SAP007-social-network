@@ -29,11 +29,12 @@ export default function feed() {
   const errorMessage = feedContainer.querySelector('#error-message');
 
   newPost.addEventListener('keyup', () => {
-    if (titleContent.length >= 7 && recipeContent.length >= 10) {
+    if (titleContent.value === '' && recipeContent.value === '') {
+      errorMessage.innerHTML = 'Insira uma receita válida';
+      btnPost.disabled = true;
+    } else {
       errorMessage.innerHTML = '';
       btnPost.disabled = false;
-    } else {
-      errorMessage.innerHTML = 'Insira uma receita válida';
     }
   });
   // LIMPAR INPUTS APÓS SUBMETER RECEITA
@@ -46,11 +47,10 @@ export default function feed() {
     }
     await createPost(titleContent.value, recipeContent.value, user);
     showPosts();
-    btnPost.disabled = true;
+    btnPost.disabled = false;
     titleContent.value = '';
     recipeContent.value = '';
   });
-
 
   // btnPost.addEventListener("click", (e) => {
   //   e.preventDefault();

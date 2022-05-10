@@ -3,7 +3,7 @@ import { editPost, deletePost } from '../lib/firestore.js';
 export function modalEditPost(postObj, postContainer) {
   const modalContainer = document.createElement("div");
   modalContainer.classList.add("modal-container");
-  const modalEdit = `
+  const template = `
   <div id="edit-modal" class="modal-content">
     <input class="title-edition" id="title-edit" type="text" placeholder="Título">${postObj.title}
     <textarea class="recipe-edition" id="recipe-edit" type="text" placeholder="Receita" wrap="hard">${postObj.recipe}</textarea>
@@ -15,7 +15,7 @@ export function modalEditPost(postObj, postContainer) {
     <span id="error" class="error-message"></span>
   </div>
     `;
-  modalContainer.innerHTML = modalEdit;
+  modalContainer.innerHTML = template;
 
   const editModal = modalContainer.querySelector("#edit-modal");
   const saveEdit = modalContainer.querySelector("#update-btn");
@@ -27,11 +27,11 @@ export function modalEditPost(postObj, postContainer) {
   saveEdit.addEventListener('click', () => {
     if (newTitle.value === '' || newRecipe.value === '') {
       errorMessage.classList.add('error');
-      errorMessage.innerHTML = 'Opsss! ocorreu um erro Tente novamente.';
+      errorMessage.innerHTML = 'Ocorreu um erro, tente novamente.';
     } else {
       editPost(postObj.id, newTitle.value, newRecipe.value).then(() => {
-        const saveTitle = modalContainer.querySelector('#title-edit');
-        const saveRecipe = modalContainer.querySelector('#recipe-edit');
+        const saveTitle = postContainer.querySelector('#title-edit');
+        const saveRecipe = postContainer.querySelector('#recipe-edit');
         saveTitle.innerHTML = newTitle.value;
         saveRecipe.innerHTML = newRecipe.value;
 
@@ -80,8 +80,9 @@ export function modalEditPost(postObj, postContainer) {
 
 export function modalDeletePost(postObj, postContainer) {
   const modalContainer = document.createElement("div");
+  modalContainer.classList.add("modal-container");
   const template = `
-  <div id="delete-modal" class="modal-delete">
+  <div id="delete-content" class="modal-content">
       <p class="delete-message">Tem certeza que quer excluir essa receita?</p>
 
       <button class="delete-btn" id="yes-btn" type="submit">Excluir</button>
@@ -103,7 +104,7 @@ export function modalDeletePost(postObj, postContainer) {
 
   declineBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    deleteModal.innerHTML = "";
+    modalContainer.remove();
   });
 
   window.addEventListener('click', (e) => {
