@@ -3,10 +3,9 @@ import { auth } from "../configs/config.firebase.js";
 import { modalEditPost, modalDeletePost, } from "../components/modal.js";
 import { getPosts } from "../lib/firestore.js";
 
-export function postComponent(postObj) {
+export function postComponent (postObj) {
   const userId = auth.currentUser.uid;
   const isAuthor = postObj.user === userId;
-  // const postId = postObj.id;
 
   const postsContainer = document.createElement("div");
   postsContainer.classList.add("new-post-writePost");
@@ -20,8 +19,7 @@ export function postComponent(postObj) {
             <p id="#recipe-${postObj.recipe}">Receita ${postObj.recipe}</p>
           </li>
         </ol>
-      
-      <div class='post-interations'>
+    <div class='post-interations'>
     
       <div class='like-container'>
        <button id='cookie-btn' class='button-like'>
@@ -81,7 +79,6 @@ export function postComponent(postObj) {
       countLikes.textContent = arrayLike;
     }
   });
-
 
   getPosts();
   return postsContainer;
