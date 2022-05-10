@@ -6,12 +6,12 @@
     width: 100vw;
     height: 100vh;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+  background-color: #dee4e3(0, 0, 0, 0.5);
 }
 
 .modal-content {
-    border: 2px solid pink;
-    background-color: black;
+    border: 2px solid #FDAF51;
+    background-color: #dee4e3;
     margin: 30% auto;
     padding: 20px;
     width: 70%;
@@ -37,7 +37,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background:white;
+    background: white;
     color: brown;
     box-sizing: border-box;
     border-radius: 10px;
@@ -50,7 +50,7 @@
     margin: 1em auto;
 }
 
-.cancel-delete-btn{
+.cancel-delete-btn {
     color: white;
     background-color: brown;
     padding: 4px 7px;
