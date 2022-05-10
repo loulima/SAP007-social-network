@@ -24,7 +24,6 @@ export function signIn(email, password) {
   return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      alert('Deu tudo certo!');
       return user;
     });
 }
@@ -43,13 +42,13 @@ export function userLogout() {
   });
 }
 
-// export function checkLogin() {
-//   const user = auth.currentUser;
-//   return user;
-// }
 export const user = auth.currentUser;
 export function checkLogin(callback) {
   onAuthStateChanged(auth, (user) => {
     callback(user !== null)
   });
 }
+// export function checkLogin() {
+//   const user = auth.currentUser;
+//   return user;
+// }
