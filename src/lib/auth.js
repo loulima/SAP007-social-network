@@ -37,7 +37,7 @@ export function userLogout() {
   signOut(auth).then(() => {
     window.location.hash = '#login';
   }).catch((error) => {
-    console.log('Error no logout')
+    console.log('Erro no logout')
     return error
   });
 }

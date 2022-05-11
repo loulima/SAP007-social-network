@@ -17,8 +17,8 @@ export default async function feed() {
   feedContainer.classList.add("feed-content");
 
   feedContainer.innerHTML = `
+  <a href="#login"><img src="assets/logout.png" class="logout-icon" id="icon-logout"></a>
   <div class="new-post">
-    <a href="#login"><img src="assets/logout.png" class="logout-icon" id="icon-logout"></a>
     <input id="title-recipe" class="recipe-input" placeholder="Nome da receita" required></input>
     <textarea id="recipe-content" class="post-content" placeholder="Postar nova receita" required>
     </textarea>

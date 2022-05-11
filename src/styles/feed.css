@@ -1,3 +1,7 @@
+#root{
+  margin-bottom: 70px;
+}
+
 .main-content {
   background-color: #fff;
   display: flex;
@@ -8,6 +12,7 @@
 }
 .feed-content {
   top: 20%;
+  bottom:20%;
 }
 
 .new-post {
@@ -20,9 +25,11 @@
 
 .recipe-input {
   background-color: #dee4e3;
-  width: 45vw;
+  width: 46.5vw;
   margin: 3px;
   font-size:16px;
+  height: 4vh;
+  border: none;
 }
 
 .post-btn {
@@ -77,8 +84,8 @@
 }
 
 .logout-icon {
-  display: flex;
-  justify-content: flex-end;
+position:absolute;
+margin-left: 1000px;
 }
 
 .posts {
@@ -93,7 +100,6 @@
 .posts li:hover {
   opacity: 0.8;
 }
-
 
 @media (max-width:1279px) {}
 
@@ -121,5 +127,4 @@
   height: 10vh;
   border-radius: 10px;
  }
-  
-}
+  }
