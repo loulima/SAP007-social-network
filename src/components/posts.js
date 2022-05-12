@@ -15,9 +15,9 @@ export function postComponent(postObj) {
     <div class= "post-container">
       <p>${postObj.date}</p>
         <ol class="posts">
-          <li id="#title-${postObj.id}"> <b>Titulo:${postObj.title}</b>
+          <li> <b id="title-${postObj.id}">Titulo:${postObj.title}</b>
             <p>Autor(a):${postObj.author}</p> 
-            <p id="#recipe-${postObj.recipe}">Receita ${postObj.recipe}</p>
+            <p id="recipe-${postObj.recipe}">Receita ${postObj.recipe}</p>
           </li>
         </ol>
       

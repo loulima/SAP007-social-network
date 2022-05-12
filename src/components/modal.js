@@ -22,7 +22,8 @@ export function modalEditPost(postObj, postContainer) {
   const cancelEdit = modalContainer.querySelector('#cancel-update-btn');
   const errorMessage = modalContainer.querySelector("#error");
   const newTitle = modalContainer.querySelector("#title-edit");
-  const newRecipe = modalContainer.querySelector("#recipe-edit")
+  const newRecipe = modalContainer.querySelector("#recipe-edit");
+  const postTitle = postContainer.querySelector(`#title-${postObj.id}`);
 
   saveEdit.addEventListener('click', () => {
     if (newTitle.value === '' || newRecipe.value === '') {
@@ -34,7 +35,7 @@ export function modalEditPost(postObj, postContainer) {
         const saveRecipe = postContainer.querySelector('#recipe-edit');
         saveTitle.innerHTML = newTitle.value;
         saveRecipe.innerHTML = newRecipe.value;
-
+        postTitle.innerHTML= "Título:" + newTitle.value;
         modalContainer.remove();
       });
     }
