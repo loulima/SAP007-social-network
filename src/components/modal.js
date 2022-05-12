@@ -22,7 +22,7 @@ export function modalEditPost(postObj, postContainer) {
   const errorMessage = modalContainer.querySelector("#error");
   const newTitle = modalContainer.querySelector("#title-edit");
   const newRecipe = modalContainer.querySelector("#recipe-edit");
-  const postTitle = postContainer.querySelector(`#title-${postObj.id}`);
+  // const postTitle = postContainer.querySelector(`#title-${postObj.id}`);
 
   saveEdit.addEventListener('click', () => {
     if (newTitle.value === '' || newRecipe.value === '') {
@@ -35,7 +35,7 @@ export function modalEditPost(postObj, postContainer) {
         saveTitle.innerHTML = newTitle.value;
         saveRecipe.innerHTML = newRecipe.value;
         //oh palomita //
-        postTitle.innerHTML= "Título:" + newTitle.value;
+        // postTitle.innerHTML= "Título:" + newTitle.value;
         modalContainer.remove();
       });
     }
@@ -53,31 +53,6 @@ export function modalEditPost(postObj, postContainer) {
   return modalContainer;
 }
 
-// saveEdit.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   if (newTitle.value.length >= "3" && newRecipe.value.length >= "3") {
-//     editPost(postObj.id, newTitle.value, newRecipe.value)
-//       .then(() => {
-//         const titleContent = feedContainer.querySelector('#title-recipe');
-//         const recipeContent = feedContainer.querySelector('#recipe-content');
-//         newTitle.innerHTML = titleContent.value;
-//         newRecipe.innerHTML = recipeContent.value;
-//       })
-//       .catch(() => {
-//         console.log("error");
-//       });
-//   } else if (newTitle.value === "" || newRecipe.value === "") {
-//     errorMessage.innerText = "Preencha todos os campos acima";
-//   } else (newRecipe.value.length < "10"); {
-//     errorMessage.innerText = "Preencha a mensagem acima com mais de 10 caracteres";
-//   }
-// });
-// cancelEdit.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   editModal.innerHTML = "";
-// });
-// return modalContainer;
-// }
 
 export function modalDeletePost(postObj, postContainer) {
   const modalContainer = document.createElement("div");
