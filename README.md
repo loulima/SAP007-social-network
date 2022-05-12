@@ -3,25 +3,49 @@
 
 ## Índice
 
-- [1. Introdução à DevCooks](#1-introdução-a-devcooks)
+- [1. Introdução à DevCooks](#1-introdução-à-devcooks)
 - [2. Nosso Usuário](#2-nosso-usuário)
-- [3. Layout](#3-layout)
+- [3. Layout](#3-protótipos-de-layout)
 - [4. Aprendizado](#4-aprendizado)
 - [5. Ferramentas Ultilizadas](#5-ferramentas-ultilizadas)
 - [6. Tecnologias Ultilizadas](#6-tecnologias-ultilizadas)
+- [7. Autoras](#7-autoras)
+
+<img src="src/assets/logo.svg" width="350px" alt="Logo DevCooks">
 
 ## 1. Introdução à DevCooks
 
+Você pode acessar DevCooks a partir desse link criando uma conta ou entrando pelo Google: <a href="https://loulima.github.io/SAP007-social-network/">AQUI</a>
+<br>
+Caso queira, também pode ultilizar a usuária teste para entrar:
+
+<div align='center'>
+
+<br>
+ 
+| 🍿                    	|             Login            |         
+|:-----------------------:|:----------------------------:	|
+| 	 👤                   |       usuaria1@gmail.com 	     | 
+|  🔑                   	|            lab007            	|            
+
+<br>
+<br>
 
 ### Planejamento
 
-Para a realização do projeto, tomamos como referêcia o período de cinco semanas e ultilizamos da metodologia ágil para nos planejar. A ferramenta ultilizada para esse intuito foi o Notion.
+Para a realização do projeto, tomamos como referêcia o período de cinco sprints e ultilizamos da metodologia ágil para nos planejar. A ferramenta ultilizada para esse intuito foi o Notion. A partir das Histórias de Usuários, fomos criando as tarefas que executaríamos na sprint.
 
-<img src="src/img/pag1html.jpeg" width="350px" alt="Print planejamento Notion">
+<img src="src/assets/notion.png" width="350px" alt="Print planejamento Notion">
 
 ## 2. Nosso Usuário
 
-A partir da pesquisa que realizamos através do Google Forms,
+A partir da pesquisa que realizamos através do Google Forms, lalalala
+
+<img src="src/assets/pesquisa1.png" width="350px" alt="Gráfico Pesquisa1">
+
+<img src="src/assets/pesquisa2.png" width="350px" alt="Gráfico Pesquisa2">
+
+<img src="src/assets/pesquisa3.png" width="350px" alt="Gráfico Pesquisa3">
 
 ### Histórias de Usuário
 
@@ -59,7 +83,6 @@ História 2:
 **Eu quero:** poder criar e editar uma postagem na página de linha do tempo do Dev Cooks
 
 **Para que:** possa compartilhar minhas receitas favoritas com os demais usuários do DevCooks
-
 
 **Critérios de aceitação (para as necessidades do usuário):**
 - O usuário poderá criar uma postagem no feed;
@@ -116,17 +139,21 @@ História 4:
 
 Para este projeto, tínhamos que fazer primeiro um protótipo de baixa fidelidade, mais simples e sem necessidade de usar ferramentas, apenas para esboçar uma primeira solução de interface que suprisse as necessidades do usuário.
 
+Ultilizamos o Figma para fazer os protótipos de alta fidelidade
 
-Ultilizamos o Figma para fazer o protótipo de alta fidelidade
+### Mobile:
+<img src="src/assets/protótipo-mobile.png" width="350px" alt="Protótipo Mobile">
 
-### Layout escolhido:
+### Desktop:
+<img src="src/assets/protótipo-desktop.svg" width="350px" alt="Protótipo Desktop">
 
+#### Alterações feitas no layout:
 
 ## 4. Aprendizado
 
 O projeto Social Network foi um divisor de águas, porque além de ter sido sido cumulativo com conhecimentos adquiridos nos anteriores, apresentou para nós esse "proto back end" com a criação de um banco de dados pelo Firestore, pois antes só havíamos usado bancos de dados prontos. 
 
-Também aprendemos como usar serviços do Firebase de autenticação, fazer de postagens, dar likes, log out e log in de usuário entre outros, que envolvem promises, dando para nós um panorama real de como funciona o mecanismo do assincronismo dentro de apps.
+Também aprendemos como usar serviços do Firebase de autenticação, fazer de postagens, dar likes, log out e log in de usuário entre outros, que envolvem promises e funções assíncronas, dando para nós um panorama real de como funcionam os mecanismos dentro de apps que usamos no dia a dia.
 
 Não poderia deixar de ressaltar que no final, todos as linhas de código tem como finalidade chegar ao usuário com a melhor interface possível, de uma forma intuitiva e simples de usar. Por isso, a parte de pesquisa para entender quais as reais necessidades dos nossos usuários foi essencial, assim conseguimos filtrar o que seria crucial de ter em nosso app. 
  
@@ -154,7 +181,7 @@ Não poderia deixar de ressaltar que no final, todos as linhas de código tem co
 -Firebase e Firestore
 -Figma (protótipo)
 
-### Projeto desenvolvido por Louiza Lima e Isabela Gregoraci- SAP007 Laboratória 2022
+### 7. Autoras: Projeto desenvolvido por Louiza Lima e Isabela Gregoraci- SAP007 Laboratória 2022
 
 <table>
   <tr>

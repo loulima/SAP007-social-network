@@ -1,6 +1,7 @@
 import { editPost, deletePost } from '../lib/firestore.js';
+import { showPosts } from '../pages/feed.js';
 
-export function modalEditPost(postObj, postContainer) {
+export async function modalEditPost(postObj, postContainer) {
   const modalContainer = document.createElement("div");
   modalContainer.classList.add("modal-container");
   const template = `
@@ -9,7 +10,6 @@ export function modalEditPost(postObj, postContainer) {
     <textarea class="recipe-edition" id="recipe-edit" type="text" placeholder="Receita" wrap="hard">${postObj.recipe}</textarea>
     
     <button class="btn-update" id="cancel-update-btn" >Cancelar</button>
-    
     <button class="btn-update" id="update-btn" >Atualizar</button>
     
     <span id="error" class="error-message"></span>
@@ -25,16 +25,18 @@ export function modalEditPost(postObj, postContainer) {
   const newRecipe = modalContainer.querySelector("#recipe-edit");
   const postTitle = postContainer.querySelector(`#title-${postObj.id}`);
 
-  saveEdit.addEventListener('click', () => {
+
+  saveEdit.addEventListener('click', async () => {
     if (newTitle.value === '' || newRecipe.value === '') {
       errorMessage.classList.add('error');
       errorMessage.innerHTML = 'Ocorreu um erro, tente novamente.';
     } else {
-      editPost(postObj.id, newTitle.value, newRecipe.value).then(() => {
+      await editPost(postObj.id, newTitle.value, newRecipe.value).then(() => {
         const saveTitle = postContainer.querySelector('#title-edit');
         const saveRecipe = postContainer.querySelector('#recipe-edit');
         saveTitle.innerHTML = newTitle.value;
         saveRecipe.innerHTML = newRecipe.value;
+
         //oh palomita //
         postTitle.innerHTML= "Título:" + newTitle.value;
         modalContainer.remove();

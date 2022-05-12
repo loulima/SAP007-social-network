@@ -7,13 +7,18 @@ import { getPosts } from "../lib/firestore.js";
 export function postComponent(postObj) {
   const userId = auth.currentUser.uid;
   const isAuthor = postObj.user === userId;
-  // const postId = postObj.id;
 
   const postsContainer = document.createElement("div");
   postsContainer.classList.add("new-post-writePost");
 
   const templatePost = `
     <div class= "post-container">
+      <div class='like-container'>
+        <button id='cookie-btn' class='button-like'>
+        <img class='like-icon like' src='./assets/cookie.png'>
+        <p class='likes-number'><span id='numLikes-${postObj.id}' class='num-likes'>${postObj.likes.length}</span></p>
+        </button>
+      </div>
       <p>${postObj.date}</p>
         <ul class="posts">
           <li> <b id="title-${postObj.id}"> Titulo: </b> ${postObj.title}
@@ -25,38 +30,14 @@ export function postComponent(postObj) {
         </ul>
     </div>
 
-  <div class= "post-container">
-    <ul class="post-list">
-
-      <li id="#title-${postObj.id}" class="posts-item"> Título:</li> ${postObj.title}
-
-      <li class="posts-item"> <b> Autor(a):</b></li> ${postObj.author}
-
-      <li id="#recipe-${postObj.recipe}" class="posts-item"><b> Receita: </b></li> ${postObj.recipe}
-
-      <li class="posts-item-data"> Criada em: ${postObj.date}</li>
-  </ul>
-</div> 
-
-
-
-
     <div class='post-interations'>
-    
-      <div class='like-container'>
-        <button id='cookie-btn' class='button-like'>
-          <img class='like-icon like' src='./assets/cookie.png'>
-          <p class='likes-number'><span id='numLikes-${postObj.id}' class='num-likes'>${postObj.likes.length}</span></p>
-       </button>
-      </div>
-      
       ${isAuthor ? `
         <button class='interact-btn' id='pencil-btn'><img class='edit-pencil' src='./assets/pencil.png'>Editar</button>
         <button class='interact-btn' id="trash-btn"><img class='delete-trash' src='./assets/trash.png'>Apagar</button> 
         <span id="edit-post"></span>
         <span id="delete-post"></span>
       ` : ""}
-    </div>
+      </div> 
 
 </div>
     `;
@@ -101,7 +82,6 @@ export function postComponent(postObj) {
       countLikes.textContent = arrayLike;
     }
   });
-
 
   getPosts();
   return postsContainer;

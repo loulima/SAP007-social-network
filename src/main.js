@@ -6,41 +6,41 @@ import { checkLogin } from './lib/auth.js';
 
 const mainContent = document.querySelector('#root');
 
-const init = () => {
-  window.addEventListener('hashchange', () => {
+const init = async () => {
+  window.addEventListener('hashchange', async () => {
     mainContent.innerHTML = '';
     switch (window.location.hash) {
       case '':
-        checkLogin((logado) => {
+        checkLogin(async (logado) => {
           if (logado) {
-            mainContent.appendChild(feed());
+            mainContent.appendChild(await feed());
           } else {
             mainContent.appendChild(login());
           }
         })
         break;
       case '#login':
-        checkLogin((logado) => {
+        checkLogin(async (logado) => {
           if (logado) {
-            mainContent.appendChild(feed());
+            mainContent.appendChild(await feed());
           } else {
             mainContent.appendChild(login());
           }
         })
         break;
       case '#feed':
-        checkLogin((logado) => {
+        checkLogin(async (logado) => {
           if (logado) {
-            mainContent.appendChild(feed());
+            mainContent.appendChild(await feed());
           } else {
             mainContent.appendChild(login());
           }
         })
         break;
       case '#register':
-        checkLogin((logado) => {
+        checkLogin(async (logado) => {
           if (logado) {
-            mainContent.appendChild(feed());
+            mainContent.appendChild(await feed());
           } else {
             mainContent.appendChild(register());
           }
@@ -52,15 +52,15 @@ const init = () => {
   });
 };
 
-window.addEventListener('load', () => {
-  checkLogin((logado) => {
+window.addEventListener('load', async () => {
+  checkLogin(async (logado) => {
     if (logado) {
-      mainContent.appendChild(feed());
+      mainContent.appendChild(await feed());
     } else {
       mainContent.appendChild(login());
     }
   })
-  init();
+  await init();
 });
 
 // export const renderPage = () => {

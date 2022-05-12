@@ -1,13 +1,23 @@
+import { userLogout } from '../lib/auth.js';
 import { getPosts } from '../lib/firestore.js';
 import { postComponent } from '../components/posts.js';
-import { printNav } from '../components/navbar.js';
 import { createPost } from '../lib/firestore.js';
 
-export default function feed() {
+export const showPosts = async (sectionPost) => {
+  sectionPost.innerHTML = '';
+  const postsArray = await getPosts();
+  postsArray.forEach((postObj) => {
+    const postElement = postComponent(postObj);
+    sectionPost.prepend(postElement);
+  });
+};
+
+export default async function feed() {
   const feedContainer = document.createElement("section");
   feedContainer.classList.add("feed-content");
 
   feedContainer.innerHTML = `
+  <a href="#login"><img src="assets/logout.png" class="logout-icon" id="icon-logout"></a>
   <div class="new-post">
     <input id="title-recipe" class="recipe-input" placeholder="Nome da receita" required></input>
     <textarea id="recipe-content" class="post-content" placeholder="Postar nova receita" required>
@@ -19,14 +29,18 @@ export default function feed() {
   </div>
     `;
 
-  feedContainer.appendChild(printNav());
-
   const sectionPost = feedContainer.querySelector("#showPosts");
   const newPost = feedContainer.querySelector('.new-post');
   const titleContent = feedContainer.querySelector('#title-recipe');
   const recipeContent = feedContainer.querySelector('#recipe-content');
   const btnPost = feedContainer.querySelector('#new-post-btn');
   const errorMessage = feedContainer.querySelector('#error-message');
+  const logOut = feedContainer.querySelector('#icon-logout');
+
+  logOut.addEventListener('click',(e) => {
+    e.preventDefault();
+    userLogout();
+  });
 
   newPost.addEventListener('keyup', () => {
     if (titleContent.value === '' && recipeContent.value === '') {
@@ -65,14 +79,6 @@ export default function feed() {
   // } // else (errorMessage.innerHTML="");
   // });
 
-  const showPosts = async () => {
-    sectionPost.innerHTML = '';
-    const postsArray = await getPosts();
-    postsArray.forEach((postObj) => {
-      const postElement = postComponent(postObj);
-      sectionPost.prepend(postElement);
-    });
-  };
-  showPosts();
+  await showPosts(sectionPost);
   return feedContainer;
 }
