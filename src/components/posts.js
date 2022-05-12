@@ -12,22 +12,24 @@ export function postComponent(postObj) {
   postsContainer.classList.add("new-post-writePost");
 
   const templatePost = `
-    <div class= "post-container">
-      <div class='like-container'>
+  <div class='like-container'>
         <button id='cookie-btn' class='button-like'>
         <img class='like-icon like' src='./assets/cookie.png'>
         <p class='likes-number'><span id='numLikes-${postObj.id}' class='num-likes'>${postObj.likes.length}</span></p>
         </button>
       </div>
-      <p>${postObj.date}</p>
-        <ul class="posts">
-          <li> <b id="title-${postObj.id}"> Titulo: </b> ${postObj.title}
-            <p> <b class=""> Autor(a): </b> ${postObj.author}</p> 
-            <b id="recipe-${postObj.recipe}">Receita:</b>
-            <p>  </p>
-            ${postObj.recipe}  
-          </li>
-        </ul>
+
+    <div class= "post-container">
+      <ul class="posts">
+        <li>
+          <h3 class="post-title" id="title-${postObj.id}">${postObj.title} </h3>
+          <h4 class="post-itens">Autor(a): </h3>
+            <p> ${postObj.author} </p>
+          <h4 class="post-itens">Receita: </h3>
+            <p id="recipe-${postObj.recipe}">  ${postObj.recipe}  </p>
+            <p class="post-itens"> <strong> Data: </strong> ${postObj.date}</p>
+        </li>
+      </ul>
     </div>
 
     <div class='post-interations'>
