@@ -17,8 +17,8 @@ export default async function feed() {
   feedContainer.classList.add("feed-content");
 
   feedContainer.innerHTML = `
-  <a href="#login"><img src="assets/logout.png" class="logout-icon" id="icon-logout"></a>
   <div class="new-post">
+    <button class="logout-btn" id="btn-logout"><a href="#login">Sair</a></button>
     <input id="title-recipe" class="recipe-input" placeholder="Nome da receita" required></input>
     <textarea id="recipe-content" class="post-content" placeholder="Postar nova receita" required>
     </textarea>
@@ -35,7 +35,7 @@ export default async function feed() {
   const recipeContent = feedContainer.querySelector('#recipe-content');
   const btnPost = feedContainer.querySelector('#new-post-btn');
   const errorMessage = feedContainer.querySelector('#error-message');
-  const logOut = feedContainer.querySelector('#icon-logout');
+  const logOut = feedContainer.querySelector('#btn-logout');
 
   logOut.addEventListener('click',(e) => {
     e.preventDefault();

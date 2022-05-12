@@ -11,11 +11,13 @@
 - [6. Tecnologias Ultilizadas](#6-tecnologias-ultilizadas)
 - [7. Autoras](#7-autoras)
 
+<div align='center'>
 <img src="src/assets/logo.svg" width="350px" alt="Logo DevCooks">
+</div>
 
 ## 1. Introdução à DevCooks
 
-Você pode acessar DevCooks a partir desse link criando uma conta ou entrando pelo Google: <a href="https://loulima.github.io/SAP007-social-network/">AQUI</a>
+Você pode acessar DevCooks a partir desse link criando uma conta ou entrando pelo Google: <a href="https://loulima.github.io/SAP007-social-network/">aqui</a>
 <br>
 Caso queira, também pode ultilizar a usuária teste para entrar:
 
@@ -35,40 +37,40 @@ Caso queira, também pode ultilizar a usuária teste para entrar:
 
 Para a realização do projeto, tomamos como referêcia o período de cinco sprints e ultilizamos da metodologia ágil para nos planejar. A ferramenta ultilizada para esse intuito foi o Notion. A partir das Histórias de Usuários, fomos criando as tarefas que executaríamos na sprint.
 
-<img src="src/assets/notion.png" width="350px" alt="Print planejamento Notion">
+<img src="src/assets/notion.png" width="500px" alt="Print planejamento Notion">
 
 ## 2. Nosso Usuário
 
 A partir da pesquisa que realizamos através do Google Forms, lalalala
 
-<img src="src/assets/pesquisa1.png" width="350px" alt="Gráfico Pesquisa1">
+<img src="src/assets/pesquisa1.png" width="450px" alt="Gráfico Pesquisa1">
 
-<img src="src/assets/pesquisa2.png" width="350px" alt="Gráfico Pesquisa2">
+<img src="src/assets/pesquisa2.png" width="450px" alt="Gráfico Pesquisa2">
 
-<img src="src/assets/pesquisa3.png" width="350px" alt="Gráfico Pesquisa3">
+<img src="src/assets/pesquisa3.png" width="450px" alt="Gráfico Pesquisa3">
 
 ### Histórias de Usuário
 
-História 1: 
+#### História 1: 
 
-**Enquanto:** Um usuário do DevCooks
+Enquanto: Um usuário do DevCooks
 
-**Eu quero:** poder criar uma conta com email e senha
+Eu quero: poder criar uma conta com email e senha
 
-**Para que:** Para ter fácil acesso ao conteúdo do site nas próximas vezes que entrar.
+Para que: Para ter fácil acesso ao conteúdo do site nas próximas vezes que entrar.
 
-**Critérios de aceitação (para as necessidades do usuário):**
+Critérios de aceitação (para as necessidades do usuário):
 - Ter uma tela de login que peça o cadastro a partir de um e-mail e de uma senha;
 - Validar os dados após o login;
 - Ter os dados salvos para o próximo acesso;
     
-**Definição de pronto(técnico):**
-    
-**Criação e login de conta de usuário**
+Definição de pronto(técnico):
+  
+Criação e login de conta de usuário
 - O usuário deve poder criar uma conta de acesso ou autenticar-se com conta de e-mail e senha
 - E também com uma conta do Google.
     
- **Validações:**
+ Validações:
 - Somente usuários com contas válidas têm acesso permitido.
 - Não haver usuários repetidos.
 - A conta do usuário deve ser um email válido.
@@ -76,25 +78,25 @@ História 1:
 - Quando o formulário de registro ou login é enviado, ele deve ser validado.
 - Se houver erros, mensagens descritivas devem ser exibidas para ajudar o usuário.
 
-História 2:
+#### História 2:
 
-**Enquanto:** Um usuário do DevCooks
+Enquanto: Um usuário do DevCooks
 
-**Eu quero:** poder criar e editar uma postagem na página de linha do tempo do Dev Cooks
+Eu quero: poder criar e editar uma postagem na página de linha do tempo do Dev Cooks
 
-**Para que:** possa compartilhar minhas receitas favoritas com os demais usuários do DevCooks
+Para que: possa compartilhar minhas receitas favoritas com os demais usuários do DevCooks
 
-**Critérios de aceitação (para as necessidades do usuário):**
+Critérios de aceitação (para as necessidades do usuário):
 - O usuário poderá criar uma postagem no feed;
 - O post deverá ser validado;
 - Verificação de login do usuário no carregamento da página, para que possa ter acesso ao conteúdo dos posts
 
-**Definição de pronto(técnico):**
+Definição de pronto(técnico):
 
-**Validações:**
+Validações:
 - Ao publicar, deve ser validado se há conteúdo no input.
 
-**Comportamento:**
+Comportamento:
 - Criar Template das postagens
 - Ao recarregar o aplicativo, é necessário verificar se o usuário está logado antes de exibir o conteúdo (Observador)
 - Conseguir publicar um post.
@@ -102,36 +104,36 @@ História 2:
 - Ao salvar as alterações, você deve voltar ao texto normal, mas com a informação editada.
 - Ao recarregar a página, poder ver os textos editados.
  
- História 3:
+#### História 3:
 
-**Enquanto um:** Usuário do DevCooks
+Enquanto um: Usuário do DevCooks
 
-**Eu quero:** poder excluir uma publicação criada por mim
+Eu quero: poder excluir uma publicação criada por mim
 
-**Para que:** possa ter uma interação mais dinâmica com a aplicação e um controle sobre o conteúdo que compartilho
+Para que: possa ter uma interação mais dinâmica com a aplicação e um controle sobre o conteúdo que compartilho
 
-**Critérios de aceitação (para as necessidades do usuário):**
+Critérios de aceitação (para as necessidades do usuário):
 - O usuário poderá excluir uma postagem que ele criou;
 - Após a exclusão, a publicação não será mais disponível a acesso e visualização;
 
-**Definição de pronto(técnico):**
+Definição de pronto(técnico):
 - Poder excluir uma postagem específica.
 - Solicitar confirmação antes de excluir um post.
 
-História 4:
+#### História 4:
 
-**Enquanto um:** Usuário do DevCooks
+Enquanto um: Usuário do DevCooks
 
-**Eu quero:** poder dar likes nas publicações da linha do tempo do Dev Cooks
+Eu quero: poder dar likes nas publicações da linha do tempo do Dev Cooks
 
-**Para que:** possa interagir com os outros usuários do DevCooks
+Para que: possa interagir com os outros usuários do DevCooks
 
-**Critérios de aceitação (para as necessidades do usuário):**
+Critérios de aceitação (para as necessidades do usuário):
 - O usuário poderá curtir e descurtir as publicações criadas no feed do DevCooks;
 - A contagem de curtidas deverá estar visível aos demais usuários;
 - Será permitido uma única curtida por usuário em cada postagem;
 
-**Definição de pronto(técnico):**
+Definição de pronto(técnico):
 - Poder dar e remover likes em uma publicação. Máximo de um por usuário.
 - Visualizar contagem de likes.
 

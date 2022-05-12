@@ -51,7 +51,7 @@ body {
 }
 
 .error-message {
-    color: red;
+    color: rgb(174, 65, 65);
     display: none;
 }
 
@@ -97,8 +97,8 @@ color:black;
 
 @media (max-width:1279px) {
     .logo {
-        width: 28vw;
-        height: 28vh;
+        width: 48vw;
+        height: 23vh;
         margin-top: 15px;
     }
 
