@@ -35,6 +35,7 @@ export function modalEditPost(postObj, postContainer) {
         const saveRecipe = postContainer.querySelector('#recipe-edit');
         saveTitle.innerHTML = newTitle.value;
         saveRecipe.innerHTML = newRecipe.value;
+        //oh palomita //
         postTitle.innerHTML= "Título:" + newTitle.value;
         modalContainer.remove();
       });

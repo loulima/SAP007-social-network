@@ -1,3 +1,4 @@
+
 import { likePost, dislikePost } from "../lib/firestore.js";
 import { auth } from "../configs/config.firebase.js";
 import { modalEditPost, modalDeletePost, } from "../components/modal.js";
@@ -14,31 +15,50 @@ export function postComponent(postObj) {
   const templatePost = `
     <div class= "post-container">
       <p>${postObj.date}</p>
-        <ol class="posts">
-          <li> <b id="title-${postObj.id}">Titulo:${postObj.title}</b>
-            <p>Autor(a):${postObj.author}</p> 
-            <p id="recipe-${postObj.recipe}">Receita ${postObj.recipe}</p>
+        <ul class="posts">
+          <li> <b id="title-${postObj.id}"> Titulo: </b> ${postObj.title}
+            <p> <b class=""> Autor(a): </b> ${postObj.author}</p> 
+            <b id="recipe-${postObj.recipe}">Receita:</b>
+            <p>  </p>
+            ${postObj.recipe}  
           </li>
-        </ol>
-      
-      <div class='post-interations'>
+        </ul>
+    </div>
+
+  <div class= "post-container">
+    <ul class="post-list">
+
+      <li id="#title-${postObj.id}" class="posts-item"> Título:</li> ${postObj.title}
+
+      <li class="posts-item"> <b> Autor(a):</b></li> ${postObj.author}
+
+      <li id="#recipe-${postObj.recipe}" class="posts-item"><b> Receita: </b></li> ${postObj.recipe}
+
+      <li class="posts-item-data"> Criada em: ${postObj.date}</li>
+  </ul>
+</div> 
+
+
+
+
+    <div class='post-interations'>
     
       <div class='like-container'>
-       <button id='cookie-btn' class='button-like'>
-        <img class='like-icon like' src='./assets/cookie.png'>
-        <p class='likes-number'><span id='numLikes-${postObj.id}' class='num-likes'>${postObj.likes.length}</span></p>
+        <button id='cookie-btn' class='button-like'>
+          <img class='like-icon like' src='./assets/cookie.png'>
+          <p class='likes-number'><span id='numLikes-${postObj.id}' class='num-likes'>${postObj.likes.length}</span></p>
        </button>
       </div>
-
-     ${isAuthor ? `
-     <button class='interact-btn' id='pencil-btn'><img class='edit-pencil' src='./assets/pencil.png'>Editar</button>
-     <button class='interact-btn' id="trash-btn"><img class='delete-trash' src='./assets/trash.png'>Apagar</button> 
-    
-     <span id="edit-post"></span>
-     <span id="delete-post"></span>
+      
+      ${isAuthor ? `
+        <button class='interact-btn' id='pencil-btn'><img class='edit-pencil' src='./assets/pencil.png'>Editar</button>
+        <button class='interact-btn' id="trash-btn"><img class='delete-trash' src='./assets/trash.png'>Apagar</button> 
+        <span id="edit-post"></span>
+        <span id="delete-post"></span>
       ` : ""}
-  </div>  
     </div>
+
+</div>
     `;
   postsContainer.innerHTML = templatePost;
 
@@ -86,6 +106,3 @@ export function postComponent(postObj) {
   getPosts();
   return postsContainer;
 }
-
-
-
