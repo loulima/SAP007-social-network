@@ -25,22 +25,6 @@ export function postComponent(postObj) {
         </ul>
     </div>
 
-  <div class= "post-container">
-    <ul class="post-list">
-
-      <li id="#title-${postObj.id}" class="posts-item"> Título:</li> ${postObj.title}
-
-      <li class="posts-item"> <b> Autor(a):</b></li> ${postObj.author}
-
-      <li id="#recipe-${postObj.recipe}" class="posts-item"><b> Receita: </b></li> ${postObj.recipe}
-
-      <li class="posts-item-data"> Criada em: ${postObj.date}</li>
-  </ul>
-</div> 
-
-
-
-
     <div class='post-interations'>
     
       <div class='like-container'>
