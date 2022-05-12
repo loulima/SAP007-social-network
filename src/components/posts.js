@@ -1,3 +1,4 @@
+
 import { likePost, dislikePost } from "../lib/firestore.js";
 import { auth } from "../configs/config.firebase.js";
 import { modalEditPost, modalDeletePost, } from "../components/modal.js";
@@ -19,23 +20,26 @@ export function postComponent(postObj) {
         </button>
       </div>
       <p>${postObj.date}</p>
-        <ol class="posts">
-          <li id="#title-${postObj.id}"> <b>Titulo:${postObj.title}</b>
-            <p>Autor(a):${postObj.author}</p> 
-            <p id="#recipe-${postObj.recipe}">Receita ${postObj.recipe}</p>
+        <ul class="posts">
+          <li> <b id="title-${postObj.id}"> Titulo: </b> ${postObj.title}
+            <p> <b class=""> Autor(a): </b> ${postObj.author}</p> 
+            <b id="recipe-${postObj.recipe}">Receita:</b>
+            <p>  </p>
+            ${postObj.recipe}  
           </li>
-        </ol>
+        </ul>
+    </div>
 
-      <div class='post-interations'>
-        ${isAuthor ? `
+    <div class='post-interations'>
+      ${isAuthor ? `
         <button class='interact-btn' id='pencil-btn'><img class='edit-pencil' src='./assets/pencil.png'>Editar</button>
         <button class='interact-btn' id="trash-btn"><img class='delete-trash' src='./assets/trash.png'>Apagar</button> 
-        
         <span id="edit-post"></span>
         <span id="delete-post"></span>
-          ` : ""}
-      </div>  
-    </div>
+      ` : ""}
+      </div> 
+
+</div>
     `;
   postsContainer.innerHTML = templatePost;
 
@@ -82,6 +86,3 @@ export function postComponent(postObj) {
   getPosts();
   return postsContainer;
 }
-
-
-
