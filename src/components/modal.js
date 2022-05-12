@@ -25,21 +25,21 @@ export async function modalEditPost(postObj, postContainer) {
   const newRecipe = modalContainer.querySelector("#recipe-edit");
   // const sectionPost = feedContainer.querySelector("#showPosts");
 
-  saveEdit.addEventListener('click', () => {
-    if (newTitle.value === '' || newRecipe.value === '') {
-      errorMessage.classList.add('error');
-      errorMessage.innerHTML = 'Ocorreu um erro, tente novamente.';
-    } else {
-      await editPost(postObj.id, newTitle.value, newRecipe.value).then(() => {
-        const saveTitle = postContainer.querySelector('#title-edit');
-        const saveRecipe = postContainer.querySelector('#recipe-edit');
-        saveTitle.innerHTML = newTitle.value;
-        saveRecipe.innerHTML = newRecipe.value;
-        // await showPosts(sectionPost);
-        modalContainer.remove();
-      });
-    }
-  });
+  // saveEdit.addEventListener('click', () => {
+  //   if (newTitle.value === '' || newRecipe.value === '') {
+  //     errorMessage.classList.add('error');
+  //     errorMessage.innerHTML = 'Ocorreu um erro, tente novamente.';
+  //   } else {
+  //     await editPost(postObj.id, newTitle.value, newRecipe.value).then(() => {
+  //       const saveTitle = postContainer.querySelector('#title-edit');
+  //       const saveRecipe = postContainer.querySelector('#recipe-edit');
+  //       saveTitle.innerHTML = newTitle.value;
+  //       saveRecipe.innerHTML = newRecipe.value;
+  //       // await showPosts(sectionPost);
+  //       modalContainer.remove();
+  //     });
+  //   }
+  // });
 
   cancelEdit.addEventListener('click', () => {
     modalContainer.remove();
