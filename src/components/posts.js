@@ -3,7 +3,7 @@ import { auth } from "../configs/config.firebase.js";
 import { modalEditPost, modalDeletePost, } from "../components/modal.js";
 import { getPosts } from "../lib/firestore.js";
 
-export function postComponent (postObj) {
+export function postComponent(postObj) {
   const userId = auth.currentUser.uid;
   const isAuthor = postObj.user === userId;
 
@@ -12,6 +12,12 @@ export function postComponent (postObj) {
 
   const templatePost = `
     <div class= "post-container">
+      <div class='like-container'>
+        <button id='cookie-btn' class='button-like'>
+        <img class='like-icon like' src='./assets/cookie.png'>
+        <p class='likes-number'><span id='numLikes-${postObj.id}' class='num-likes'>${postObj.likes.length}</span></p>
+        </button>
+      </div>
       <p>${postObj.date}</p>
         <ol class="posts">
           <li id="#title-${postObj.id}"> <b>Titulo:${postObj.title}</b>
@@ -19,23 +25,16 @@ export function postComponent (postObj) {
             <p id="#recipe-${postObj.recipe}">Receita ${postObj.recipe}</p>
           </li>
         </ol>
-    <div class='post-interations'>
-    
-      <div class='like-container'>
-       <button id='cookie-btn' class='button-like'>
-        <img class='like-icon like' src='./assets/cookie.png'>
-        <p class='likes-number'><span id='numLikes-${postObj.id}' class='num-likes'>${postObj.likes.length}</span></p>
-       </button>
-      </div>
 
-     ${isAuthor ? `
-     <button class='interact-btn' id='pencil-btn'><img class='edit-pencil' src='./assets/pencil.png'>Editar</button>
-     <button class='interact-btn' id="trash-btn"><img class='delete-trash' src='./assets/trash.png'>Apagar</button> 
-    
-     <span id="edit-post"></span>
-     <span id="delete-post"></span>
-      ` : ""}
-  </div>  
+      <div class='post-interations'>
+        ${isAuthor ? `
+        <button class='interact-btn' id='pencil-btn'><img class='edit-pencil' src='./assets/pencil.png'>Editar</button>
+        <button class='interact-btn' id="trash-btn"><img class='delete-trash' src='./assets/trash.png'>Apagar</button> 
+        
+        <span id="edit-post"></span>
+        <span id="delete-post"></span>
+          ` : ""}
+      </div>  
     </div>
     `;
   postsContainer.innerHTML = templatePost;
