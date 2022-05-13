@@ -20,7 +20,7 @@ export default async function feed() {
   <div class="new-post">
     <button class="logout-btn" id="btn-logout"><a href="#login">Sair</a></button>
     <input id="title-recipe" class="recipe-input" placeholder="Nome da receita" required></input>
-    <textarea id="recipe-content" class="post-content" placeholder="Postar nova receita" required>
+    <textarea id="recipe-content" class="post-content" placeholder="Postar nova receita" maxlength="250" required>
     </textarea>
     <span id="error-message" class="error-writepost"></span>
     <button class="post-btn" id="new-post-btn">Postar</button>
@@ -30,7 +30,6 @@ export default async function feed() {
     `;
 
   const sectionPost = feedContainer.querySelector("#showPosts");
-  const newPost = feedContainer.querySelector('.new-post');
   const titleContent = feedContainer.querySelector('#title-recipe');
   const recipeContent = feedContainer.querySelector('#recipe-content');
   const btnPost = feedContainer.querySelector('#new-post-btn');
@@ -56,7 +55,7 @@ export default async function feed() {
         uid: localStorage.getItem('userId'),
       }
       await createPost(titleContent.value, recipeContent.value, user);
-      showPosts();
+      showPosts(sectionPost);
       btnPost.disabled = false;
       titleContent.value = '';
       recipeContent.value = '';

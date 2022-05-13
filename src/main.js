@@ -14,7 +14,7 @@ const init = async () => {
     if (hash != '#login' && hash != '#register' && user == null) {
       window.location.hash = '#login';
       mainContent.appendChild(login());
-      return
+      return;
     }
     switch (window.location.hash) {
       case '#login':
