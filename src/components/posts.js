@@ -1,8 +1,7 @@
 
-import { likePost, dislikePost } from "../lib/firestore.js";
+import { likePost, dislikePost, getPosts } from "../lib/firestore.js";
 import { auth } from "../configs/config.firebase.js";
 import { modalEditPost, modalDeletePost, } from "../components/modal.js";
-import { getPosts } from "../lib/firestore.js";
 
 export function postComponent(postObj) {
   const userId = auth.currentUser.uid;
@@ -23,7 +22,7 @@ export function postComponent(postObj) {
         <ul class="posts">
           <li> <b id="title-${postObj.id}"> Titulo: </b> ${postObj.title}
             <p> <b class=""> Autor(a): </b> ${postObj.author}</p> 
-            <b id="recipe-${postObj.recipe}">Receita:</b>
+            <b id="recipe-${postObj.id}">Receita:</b>
             <p>  </p>
             ${postObj.recipe}  
           </li>

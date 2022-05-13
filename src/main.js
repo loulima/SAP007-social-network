@@ -2,66 +2,40 @@
 import login from './pages/login.js';
 import register from './pages/register.js';
 import feed from './pages/feed.js';
-import { checkLogin } from './lib/auth.js';
+import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+import { auth } from '../configs/config.firebase.js';
 
 const mainContent = document.querySelector('#root');
 
 const init = async () => {
-  window.addEventListener('hashchange', async () => {
-    mainContent.innerHTML = '';
+  mainContent.innerHTML = '';
+  onAuthStateChanged(auth, async (user)  => {
+    const hash = window.location.hash;
+    if (hash != '#login' && hash != '#register' && user == null) {
+      window.location.hash = '#login';
+      mainContent.appendChild(login());
+      return
+    }
     switch (window.location.hash) {
-      case '':
-        checkLogin(async (logado) => {
-          if (logado) {
-            mainContent.appendChild(await feed());
-          } else {
-            mainContent.appendChild(login());
-          }
-        })
-        break;
       case '#login':
-        checkLogin(async (logado) => {
-          if (logado) {
-            mainContent.appendChild(await feed());
-          } else {
-            mainContent.appendChild(login());
-          }
-        })
-        break;
-      case '#feed':
-        checkLogin(async (logado) => {
-          if (logado) {
-            mainContent.appendChild(await feed());
-          } else {
-            mainContent.appendChild(login());
-          }
-        })
+        mainContent.appendChild(login());
         break;
       case '#register':
-        checkLogin(async (logado) => {
-          if (logado) {
-            mainContent.appendChild(await feed());
-          } else {
-            mainContent.appendChild(register());
-          }
-        })
+        mainContent.appendChild(register());
+        break;
+      case '#feed':
+        mainContent.appendChild(await feed());
         break;
       default:
-        mainContent.appendChild(login()); 
+        mainContent.appendChild(login());
     }
   });
 };
+const eventHandler= async () => await init();
+window.addEventListener('hashchange', eventHandler);
+window.addEventListener('load', eventHandler);
 
-window.addEventListener('load', async () => {
-  checkLogin(async (logado) => {
-    if (logado) {
-      mainContent.appendChild(await feed());
-    } else {
-      mainContent.appendChild(login());
-    }
-  })
-  await init();
-});
+await init()
 
 // export const renderPage = () => {
 //   const mainContent = document.getElementById('root');
@@ -69,7 +43,7 @@ window.addEventListener('load', async () => {
 //     '/': login,
 //     "/login": login,
 //     '/feed': feed,
-//     '/cadastro': register,
+//     '/register': register,
 //   };
 //   mainContent.innerHTML = '';
 //   mainContent.appendChild(routes[window.location.pathname]());

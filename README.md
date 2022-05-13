@@ -1,5 +1,11 @@
+<div align='center'>
+<img src="src/assets/logo.svg" width="350px" alt="Logo DevCooks">
+</div>
+
+<div align='center'>
 # Bem vindas(os) à DevCooks
 ### A rede social de receitas práticas para devs!
+</div>
 
 ## Índice
 
@@ -10,10 +16,6 @@
 - [5. Ferramentas Ultilizadas](#5-ferramentas-ultilizadas)
 - [6. Tecnologias Ultilizadas](#6-tecnologias-ultilizadas)
 - [7. Autoras](#7-autoras)
-
-<div align='center'>
-<img src="src/assets/logo.svg" width="350px" alt="Logo DevCooks">
-</div>
 
 ## 1. Introdução à DevCooks
 
@@ -144,7 +146,7 @@ Para este projeto, tínhamos que fazer primeiro um protótipo de baixa fidelidad
 Ultilizamos o Figma para fazer os protótipos de alta fidelidade
 
 ### Mobile:
-<img src="src/assets/protótipo-mobile.png" width="350px" alt="Protótipo Mobile">
+<img src="src/assets/protótipo-mobile.png" width="500px" alt="Protótipo Mobile">
 
 ### Desktop:
 <img src="src/assets/protótipo-desktop.svg" width="350px" alt="Protótipo Desktop">
