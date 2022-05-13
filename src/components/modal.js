@@ -11,7 +11,7 @@ export function modalEditPost(postObj, postContainer) {
     <button class="btn-update" id="cancel-update-btn" >Cancelar</button>
     <button class="btn-update" id="update-btn" >Atualizar</button>
     
-    <span id="error" class="error-message"></span>
+    <span id="error-msg" class="error-message"></span>
   </div>
     `;
   modalContainer.innerHTML = template;
@@ -19,23 +19,21 @@ export function modalEditPost(postObj, postContainer) {
   const editModal = modalContainer.querySelector("#edit-modal");
   const saveEdit = modalContainer.querySelector("#update-btn");
   const cancelEdit = modalContainer.querySelector('#cancel-update-btn');
-  const errorMessage = modalContainer.querySelector("#error");
+  const errorMessage = modalContainer.querySelector("#error-msg");
   const newTitle = modalContainer.querySelector("#title-edit");
   const newRecipe = modalContainer.querySelector("#recipe-edit");
-  // const postTitle = postContainer.querySelector(`#title-${postObj.id}`);
+  const postTitle = postContainer.querySelector(`#title-${postObj.id}`);
+  const postRecipe = postContainer.querySelector(`#recipe-${postObj.id}`);
 
   saveEdit.addEventListener('click', () => {
     if (newTitle.value === '' || newRecipe.value === '') {
-      errorMessage.classList.add('error');
+      // errorMessage.classList.add('error');
       errorMessage.innerHTML = 'Ocorreu um erro, tente novamente.';
     } else {
       editPost(postObj.id, newTitle.value, newRecipe.value).then(() => {
-        const saveTitle = postContainer.querySelector('#title-edit');
-        const saveRecipe = postContainer.querySelector('#recipe-edit');
-        saveTitle.innerHTML = newTitle.value;
-        saveRecipe.innerHTML = newRecipe.value;
         //oh palomita //
-        // postTitle.innerHTML= "Título:" + newTitle.value;
+        postTitle.innerHTML = "Título:" + newTitle.value;
+        postRecipe.innerHTML = "Receita:" + newRecipe.value;
         modalContainer.remove();
       });
     }
@@ -52,7 +50,6 @@ export function modalEditPost(postObj, postContainer) {
   });
   return modalContainer;
 }
-
 
 export function modalDeletePost(postObj, postContainer) {
   const modalContainer = document.createElement("div");

@@ -7,6 +7,7 @@
 body {
     background-color: #faebd7;
 }
+
 .logo {
     width: 28vw;
     height: 30vh;
@@ -34,11 +35,23 @@ body {
     flex-direction: column;
     justify-content: space-around;
 }
+
 .text-input,
 .btn-login,
 .btn-login-google,
 .btn-register {
     margin: 10px 0px;
+}
+
+.btn-login:hover,
+.btn-login-google:hover,
+.btn-register:hover  {
+ box-shadow: 5px 5px 9px #acacac;
+}
+
+.btn-login a {
+    text-decoration: none;
+    color: black;
 }
 
 .text-input {
@@ -90,9 +103,10 @@ body {
     bottom: 0%;
     width: 100%;
 }
+
 .main-footer a {
-text-decoration:none;
-color:black;
+    text-decoration: none;
+    color: black;
 }
 
 @media (max-width:1279px) {

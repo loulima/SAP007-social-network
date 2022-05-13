@@ -37,48 +37,32 @@ export default async function feed() {
   const errorMessage = feedContainer.querySelector('#error-message');
   const logOut = feedContainer.querySelector('#btn-logout');
 
-  logOut.addEventListener('click',(e) => {
+  logOut.addEventListener('click', (e) => {
     e.preventDefault();
     userLogout();
   });
 
-  newPost.addEventListener('keyup', () => {
-    if (titleContent.value === '' && recipeContent.value === '') {
+  // feed.prepend(templatePostFeed(item));
+  // message.value = '';
+
+  btnPost.addEventListener('click', async (e) => {
+    e.preventDefault();
+    if (titleContent.value === '' || recipeContent.value === '') {
       errorMessage.innerHTML = 'Insira uma receita válida';
       btnPost.disabled = true;
     } else {
-      errorMessage.innerHTML = '';
+      const user = {
+        email: localStorage.getItem('userEmail'),
+        uid: localStorage.getItem('userId'),
+      }
+      await createPost(titleContent.value, recipeContent.value, user);
+      showPosts();
       btnPost.disabled = false;
+      titleContent.value = '';
+      recipeContent.value = '';
+      errorMessage.innerHTML = '';
     }
-  });
-  // LIMPAR INPUTS APÓS SUBMETER RECEITA
-  btnPost.addEventListener('click', async (e) => {
-    e.preventDefault();
-    errorMessage.innerHTML = "";
-    const user = {
-      email: localStorage.getItem('userEmail'),
-      uid: localStorage.getItem('userId'),
-    }
-    await createPost(titleContent.value, recipeContent.value, user);
-    showPosts();
-    btnPost.disabled = false;
-    titleContent.value = '';
-    recipeContent.value = '';
-  });
-
-  // btnPost.addEventListener("click", (e) => {
-  //   e.preventDefault();
-  //   errorMessage.innerHTML="";
-  //   if (titleContent.value.length >= "10" && recipeContent.value.length >= "10"){
-  //   createPost(recipeContent.value, auth.currentUser.email)
-  //   showPosts();
-  // } else if (titleContent.value === "" && recipeContent.value === "") {
-  //   errorMessage.innerText = "Preencha todos os campos acima";
-  // } else if (titleContent.value.length < "10" || recipeContent.value.length < "10"); {
-  //   errorMessage.innerText = "Preencha os campos com mais de 10 caracteres";
-  // } // else (errorMessage.innerHTML="");
-  // });
-
+  })
   await showPosts(sectionPost);
   return feedContainer;
 }
