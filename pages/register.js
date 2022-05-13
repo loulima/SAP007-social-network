@@ -2,8 +2,8 @@ import { createUser } from '../lib/auth.js';
 
 export default () => {
   const register = document.createElement('div');
+  register.classList.add('login-container');
   register.innerHTML = `
-  <div class="login-container">
       <form class="login-form">
           <input class="text-input" type="text" id="user-name" placeholder="Nome" required>
   
@@ -16,7 +16,6 @@ export default () => {
           <button class="btn-login" type="submit" id="register-button"><a href="#feed">Cadastrar</a></button>
           <p class="login-text">Já tem uma conta?<a href="#login"> Faça login</a></p>
       </form>
-    </div>
     `;
 
   const registerEmail = register.querySelector('#register-email');

@@ -7,9 +7,11 @@
 body {
     background-color: #faebd7;
 }
+
 .logo {
-    width: 18vw;
+    width: 28vw;
     height: 30vh;
+    margin-top: 20px;
 }
 
 .main-header,
@@ -17,6 +19,7 @@ body {
     display: flex;
     justify-content: center;
 }
+
 
 .login-container {
     display: flex;
@@ -32,11 +35,23 @@ body {
     flex-direction: column;
     justify-content: space-around;
 }
+
 .text-input,
 .btn-login,
 .btn-login-google,
 .btn-register {
     margin: 10px 0px;
+}
+
+.btn-login:hover,
+.btn-login-google:hover,
+.btn-register:hover  {
+ box-shadow: 5px 5px 9px #acacac;
+}
+
+.btn-login a {
+    text-decoration: none;
+    color: black;
 }
 
 .text-input {
@@ -49,7 +64,7 @@ body {
 }
 
 .error-message {
-    color: red;
+    color: rgb(174, 65, 65);
     display: none;
 }
 
@@ -88,15 +103,16 @@ body {
     bottom: 0%;
     width: 100%;
 }
+
 .main-footer a {
-text-decoration:none;
-color:black;
+    text-decoration: none;
+    color: black;
 }
 
 @media (max-width:1279px) {
     .logo {
-        width: 28vw;
-        height: 28vh;
+        width: 48vw;
+        height: 23vh;
         margin-top: 15px;
     }
 
@@ -135,7 +151,7 @@ color:black;
 
 @media (max-width:480px) {
     .logo {
-        width: 55vw;
+        width: 75vw;
         height: 28vh;
     }
 

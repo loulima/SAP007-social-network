@@ -1,3 +1,7 @@
+#root {
+  margin-bottom: 70px;
+}
+
 .main-content {
   background-color: #fff;
   display: flex;
@@ -6,8 +10,10 @@
   margin-top: 20px;
   box-shadow: 1px 2px 4px;
 }
+
 .feed-content {
   top: 20%;
+  bottom: 20%;
 }
 
 .new-post {
@@ -20,9 +26,11 @@
 
 .recipe-input {
   background-color: #dee4e3;
-  width: 45vw;
+  width: 46.5vw;
   margin: 3px;
-  font-size:16px;
+  font-size: 16px;
+  height: 4vh;
+  border: none;
 }
 
 .post-btn {
@@ -42,11 +50,13 @@
 .new-post-writePost {
   display: flex;
   justify-content: center;
-  background-color: #ffff;
+  background-color: #dee4e3;
   flex-direction: column;
   align-items: center;
   margin-top: 8%;
-  padding: 50px;
+  padding: 30px;
+  width: 50vw;
+  border-radius: 10px;
 }
 
 .post-content {
@@ -74,9 +84,23 @@
   left: 0%;
 }
 
-.logout-icon {
-  display: flex;
-  justify-content: flex-end;
+.logout-btn {
+  margin-left: 39em;
+  background-color: #ec6951;
+  width: 6vw;
+  height: 4vh;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 1em;
+}
+
+.logout-btn:hover {
+  box-shadow: 5px 5px 9px #acacac;
+}
+
+.logout-btn a {
+  text-decoration: none;
+  color: black;
 }
 
 .posts {
@@ -88,16 +112,57 @@
   border-bottom: 1px solid gray;
 }
 
-.posts li:hover {
-  opacity: 0.8;
+.like-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-left:auto;
+  margin-bottom: 1em;
 }
 
-@media (max-width:1279px) {}
+@media (max-width:1279px) {
+  .logout-btn {
+    width: 7vh;
+    height: 2vh;
+    margin-left: 24em;
+  }
+}
 
-@media (max-width:768px) {}
+@media (max-width:768px) {
+  .logout-btn {
+    width: 7vw;
+    height: 2.5vh;
+    margin-left: 22em;
+  }
+}
 
 @media (max-width:480px) {
   .nav-menu {
     height: 8vh;
+  }
+
+  .logout-btn {
+    width: 15vw;
+    margin-left: 15em;
+  }
+
+  .recipe-input {
+    width: 70vw;
+    margin: 10px;
+  }
+
+  .post-content {
+    width: 70vw;
+    height: 25vh;
+    font-size: 15px;
+  }
+
+  .post-btn {
+    width: 30vw;
+    height: 5vh;
+  }
+
+  .new-post-writePost {
+    width: 65vw;
+    border-radius: 10px;
   }
 }

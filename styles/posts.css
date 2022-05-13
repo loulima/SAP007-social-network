@@ -4,3 +4,18 @@
     text-decoration: none;
     border-radius: 3px;
 }
+.post-container{
+    line-height: 2.0rem;
+}
+
+.post-title{
+    text-align: center;
+}
+
+@media (max-width:480px) {
+    .post-container{
+        font-size:small;
+        width: fit-content;
+        display:flex;
+    }
+}
