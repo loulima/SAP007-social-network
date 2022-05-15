@@ -1,11 +1,9 @@
-<div align='center'>
+<div align ='center'>
 <img src="src/assets/logo.svg" width="350px" alt="Logo DevCooks">
 </div>
 
-<div align='center'>
 # Bem vindas(os) à DevCooks
 ### A rede social de receitas práticas para devs!
-</div>
 
 ## Índice
 
@@ -18,6 +16,8 @@
 - [7. Autoras](#7-autoras)
 
 ## 1. Introdução à DevCooks
+
+DevCooks é uma rede social voltada para o compartilhamento de receitas rápidas e acessíveis para o estilo de vida agitado de pessoas desenvolvedoras, que buscam por uma alimentação saudável mas não possuem  muito tempo para cozinhar. 
 
 Você pode acessar DevCooks a partir desse link criando uma conta ou entrando pelo Google: <a href="https://loulima.github.io/SAP007-social-network/">aqui</a>
 <br>
@@ -43,7 +43,12 @@ Para a realização do projeto, tomamos como referêcia o período de cinco spri
 
 ## 2. Nosso Usuário
 
-A partir da pesquisa que realizamos através do Google Forms, lalalala
+A partir da pesquisa que realizamos através do Google Forms, conseguimos descobrir o que era fundamental ter em uma receita para nosso usuário, além de termos traçado seu perfil e problemas que encontra em sites costumeiros de receitas. Esses são os principais pontos encontrados:
+ 
+- Maioria das pessoas desenvolvedoras que particiaram da nossa pesquisa cozinha as próprias refeições em seu dia a dia
+- Muitas vezes, acabam comendo fast food ou lanches por falta de tempo de cozinhar
+- Quer dicas de pratos rápidos e nutritivos  
+- Busca receitas com ingredientes fáceis de encontrar
 
 <img src="src/assets/pesquisa1.png" width="450px" alt="Gráfico Pesquisa1">
 
@@ -143,7 +148,7 @@ Definição de pronto(técnico):
 
 Para este projeto, tínhamos que fazer primeiro um protótipo de baixa fidelidade, mais simples e sem necessidade de usar ferramentas, apenas para esboçar uma primeira solução de interface que suprisse as necessidades do usuário.
 
-Ultilizamos o Figma para fazer os protótipos de alta fidelidade
+Para os protótipos de alta fidelidade, ultilizamos o Figma.
 
 ### Mobile:
 <img src="src/assets/protótipo-mobile.png" width="500px" alt="Protótipo Mobile">
@@ -152,16 +157,16 @@ Ultilizamos o Figma para fazer os protótipos de alta fidelidade
 <img src="src/assets/protótipo-desktop.svg" width="350px" alt="Protótipo Desktop">
 
 #### Alterações feitas no layout:
+Quando testamos a aplicação com plano de fundo ilustrado, na prática ficou não só poluído, como também complexo para adaptar na medida de diferentes telas. Por isso, optamos por usar uma cor sólida no fundo e criamos uma paleta de cores que fizesse sentido para uma rede social de receitas.
 
 ## 4. Aprendizado
 
-O projeto Social Network foi um divisor de águas, porque além de ter sido sido cumulativo com conhecimentos adquiridos nos anteriores, apresentou para nós esse "proto back end" com a criação de um banco de dados pelo Firestore, pois antes só havíamos usado bancos de dados prontos. 
+O projeto Social Network foi um divisor de águas, porque além de ter sido cumulativo com conhecimentos adquiridos nos anteriores, apresentou para nós esse "proto back end" com a criação de um banco de dados pelo Firestore, pois antes só havíamos usado banco de dados pronto. 
 
-Também aprendemos como usar serviços do Firebase de autenticação, fazer de postagens, dar likes, log out e log in de usuário entre outros, que envolvem promises e funções assíncronas, dando para nós um panorama real de como funcionam os mecanismos dentro de apps que usamos no dia a dia.
+Também aprendemos como usar serviços do Firebase de autenticação, fazer postagens, dar likes, log out e log in de usuário entre outros serviços do Firestore, que envolvem promises e funções assíncronas, dando para nós um panorama real de como funcionam os mecanismos dentro de apps que usamos no dia a dia.
 
 Não poderia deixar de ressaltar que no final, todos as linhas de código tem como finalidade chegar ao usuário com a melhor interface possível, de uma forma intuitiva e simples de usar. Por isso, a parte de pesquisa para entender quais as reais necessidades dos nossos usuários foi essencial, assim conseguimos filtrar o que seria crucial de ter em nosso app. 
  
-
 ## 5. Ferramentas Ultilizadas
 
 **Código:**
@@ -185,7 +190,9 @@ Não poderia deixar de ressaltar que no final, todos as linhas de código tem co
 -Firebase e Firestore
 -Figma (protótipo)
 
-### 7. Autoras: Projeto desenvolvido por Louiza Lima e Isabela Gregoraci- SAP007 Laboratória 2022
+### 7. Autoras: 
+
+#### Projeto desenvolvido por Louiza Lima e Isabela Gregoraci- SAP007 Laboratória 2022
 
 <table>
   <tr>
