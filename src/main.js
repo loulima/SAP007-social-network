@@ -3,7 +3,7 @@ import login from './pages/login.js';
 import register from './pages/register.js';
 import feed from './pages/feed.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
-import { auth } from '../configs/config.firebase.js';
+import { auth } from './configs/config.firebase.js';
 
 const mainContent = document.querySelector('#root');
 
