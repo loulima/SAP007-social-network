@@ -4,11 +4,12 @@
     text-decoration: none;
     border-radius: 3px;
 }
-.post-container{
+
+.post-container {
     line-height: 2.0rem;
 }
 
-.post-title{
+.post-title {
     text-align: center;
 }
 
