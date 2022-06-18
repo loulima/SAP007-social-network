@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-shadow */
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -36,19 +38,12 @@ export const createUser = (email, password) => createUserWithEmailAndPassword(au
 export function userLogout() {
   signOut(auth).then(() => {
     window.location.hash = '#login';
-  }).catch((error) => {
-    console.log('Erro no logout')
-    return error
-  });
+  }).catch((error) => error);
 }
 
 export const user = auth.currentUser;
 export function checkLogin(callback) {
   onAuthStateChanged(auth, (user) => {
-    callback(user !== null)
+    callback(user !== null);
   });
 }
-// export function checkLogin() {
-//   const user = auth.currentUser;
-//   return user;
-// }

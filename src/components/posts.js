@@ -1,14 +1,14 @@
-
-import { likePost, dislikePost, getPosts } from "../lib/firestore.js";
-import { auth } from "../configs/config.firebase.js";
-import { modalEditPost, modalDeletePost, } from "../components/modal.js";
+/* eslint-disable no-shadow */
+import { likePost, dislikePost, getPosts } from '../lib/firestore.js';
+import { auth } from '../configs/config.firebase.js';
+import { modalEditPost, modalDeletePost } from './modal.js';
 
 export function postComponent(postObj) {
   const userId = auth.currentUser.uid;
   const isAuthor = postObj.user === userId;
 
-  const postsContainer = document.createElement("div");
-  postsContainer.classList.add("new-post-writePost");
+  const postsContainer = document.createElement('div');
+  postsContainer.classList.add('new-post-writePost');
 
   const templatePost = `
   <div class='like-container'>
@@ -37,31 +37,28 @@ export function postComponent(postObj) {
         <button class='interact-btn' id="trash-btn"><img class='delete-trash' src='./assets/trash.png'>Apagar</button> 
         <span id="edit-post"></span>
         <span id="delete-post"></span>
-      ` : ""}
+      ` : ''}
       </div> 
 
 </div>
     `;
   postsContainer.innerHTML = templatePost;
 
-  /// MODAIS DE DELETAR E EDITAR
-
   if (isAuthor) {
-    const editPost = postsContainer.querySelector("#pencil-btn");
-    editPost.addEventListener("click", (e) => {
+    const editPost = postsContainer.querySelector('#pencil-btn');
+    editPost.addEventListener('click', (e) => {
       e.preventDefault();
       postsContainer.appendChild(modalEditPost(postObj, postsContainer));
     });
 
-    const deletePost = postsContainer.querySelector("#trash-btn");
-    deletePost.addEventListener("click", (e) => {
+    const deletePost = postsContainer.querySelector('#trash-btn');
+    deletePost.addEventListener('click', (e) => {
       e.preventDefault();
       postsContainer.appendChild(modalDeletePost(postObj, postsContainer));
     });
   }
 
-  ///FUNÇÃO LIKE
-  const likeButton = postsContainer.querySelector("#cookie-btn");
+  const likeButton = postsContainer.querySelector('#cookie-btn');
   const countLikes = postsContainer.querySelector(`#numLikes-${postObj.id}`);
   const postLike = postObj.likes;
   let arrayLike = postLike.length;
