@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-undef */
 import { signIn, signinGoogle } from '../lib/auth.js';
 
 export default function login() {
@@ -28,8 +30,8 @@ export default function login() {
     e.preventDefault();
     signIn(email.value, password.value)
       .then((user) => {
-        localStorage.setItem("userEmail", user.email);
-        localStorage.setItem("userId", user.uid);
+        localStorage.setItem('userEmail', user.email);
+        localStorage.setItem('userId', user.uid);
         window.location.hash = '#feed';
       })
       .catch((error) => {

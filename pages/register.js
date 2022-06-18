@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { createUser } from '../lib/auth.js';
 
 export default () => {
