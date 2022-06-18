@@ -1,8 +1,8 @@
 import { editPost, deletePost } from '../lib/firestore.js';
 
 export function modalEditPost(postObj, postContainer) {
-  const modalContainer = document.createElement("div");
-  modalContainer.classList.add("modal-container");
+  const modalContainer = document.createElement('div');
+  modalContainer.classList.add('modal-container');
   const template = `
   <div id="edit-modal" class="modal-content">
     <input class="title-edition" id="title-edit" type="text" placeholder="Título">${postObj.title}
@@ -16,24 +16,22 @@ export function modalEditPost(postObj, postContainer) {
     `;
   modalContainer.innerHTML = template;
 
-  const editModal = modalContainer.querySelector("#edit-modal");
-  const saveEdit = modalContainer.querySelector("#update-btn");
+  const editModal = modalContainer.querySelector('#edit-modal');
+  const saveEdit = modalContainer.querySelector('#update-btn');
   const cancelEdit = modalContainer.querySelector('#cancel-update-btn');
-  const errorMessage = modalContainer.querySelector("#error-msg");
-  const newTitle = modalContainer.querySelector("#title-edit");
-  const newRecipe = modalContainer.querySelector("#recipe-edit");
+  const errorMessage = modalContainer.querySelector('#error-msg');
+  const newTitle = modalContainer.querySelector('#title-edit');
+  const newRecipe = modalContainer.querySelector('#recipe-edit');
   const postTitle = postContainer.querySelector(`#title-${postObj.id}`);
   const postRecipe = postContainer.querySelector(`#recipe-${postObj.id}`);
 
   saveEdit.addEventListener('click', () => {
     if (newTitle.value === '' || newRecipe.value === '') {
-      // errorMessage.classList.add('error');
       errorMessage.innerHTML = 'Ocorreu um erro, tente novamente.';
     } else {
       editPost(postObj.id, newTitle.value, newRecipe.value).then(() => {
-        //oh palomita //
-        postTitle.innerHTML = "Título:" + newTitle.value;
-        postRecipe.innerHTML = "Receita:" + newRecipe.value;
+        postTitle.innerHTML = `Título:${newTitle.value}`;
+        postRecipe.innerHTML = `Receita:${newRecipe.value}`;
         modalContainer.remove();
       });
     }
@@ -52,8 +50,8 @@ export function modalEditPost(postObj, postContainer) {
 }
 
 export function modalDeletePost(postObj, postContainer) {
-  const modalContainer = document.createElement("div");
-  modalContainer.classList.add("modal-container");
+  const modalContainer = document.createElement('div');
+  modalContainer.classList.add('modal-container');
   const template = `
   <div id="delete-content" class="modal-content">
       <p class="delete-message">Tem certeza que quer excluir essa receita?</p>
@@ -68,14 +66,14 @@ export function modalDeletePost(postObj, postContainer) {
   const confirmBtn = modalContainer.querySelector('#yes-btn');
   const declineBtn = modalContainer.querySelector('#no-btn');
 
-  confirmBtn.addEventListener("click", (e) => {
+  confirmBtn.addEventListener('click', (e) => {
     e.preventDefault();
     deletePost(postObj.id).then(() => {
       postContainer.remove();
     });
   });
 
-  declineBtn.addEventListener("click", (e) => {
+  declineBtn.addEventListener('click', (e) => {
     e.preventDefault();
     modalContainer.remove();
   });

@@ -1,7 +1,7 @@
+/* eslint-disable no-param-reassign */
 import { userLogout } from '../lib/auth.js';
-import { getPosts } from '../lib/firestore.js';
+import { getPosts, createPost } from '../lib/firestore.js';
 import { postComponent } from '../components/posts.js';
-import { createPost } from '../lib/firestore.js';
 
 export const showPosts = async (sectionPost) => {
   sectionPost.innerHTML = '';
@@ -13,8 +13,8 @@ export const showPosts = async (sectionPost) => {
 };
 
 export default async function feed() {
-  const feedContainer = document.createElement("section");
-  feedContainer.classList.add("feed-content");
+  const feedContainer = document.createElement('section');
+  feedContainer.classList.add('feed-content');
 
   feedContainer.innerHTML = `
   <div class="new-post">
@@ -29,7 +29,7 @@ export default async function feed() {
   </div>
     `;
 
-  const sectionPost = feedContainer.querySelector("#showPosts");
+  const sectionPost = feedContainer.querySelector('#showPosts');
   const titleContent = feedContainer.querySelector('#title-recipe');
   const recipeContent = feedContainer.querySelector('#recipe-content');
   const btnPost = feedContainer.querySelector('#new-post-btn');
@@ -41,9 +41,6 @@ export default async function feed() {
     userLogout();
   });
 
-  // feed.prepend(templatePostFeed(item));
-  // message.value = '';
-
   btnPost.addEventListener('click', async (e) => {
     e.preventDefault();
     if (titleContent.value === '' || recipeContent.value === '') {
@@ -53,7 +50,7 @@ export default async function feed() {
       const user = {
         email: localStorage.getItem('userEmail'),
         uid: localStorage.getItem('userId'),
-      }
+      };
       await createPost(titleContent.value, recipeContent.value, user);
       showPosts(sectionPost);
       btnPost.disabled = false;
@@ -61,7 +58,7 @@ export default async function feed() {
       recipeContent.value = '';
       errorMessage.innerHTML = '';
     }
-  })
+  });
   await showPosts(sectionPost);
   return feedContainer;
 }
