@@ -14,8 +14,8 @@ const init = async () => {
     const hash = window.location.hash;
     if (hash !== '#login' && hash !== '#register' && user == null) {
       window.location.hash = '#login';
-      mainContent.appendChild(login());
-      return;
+      //mainContent.appendChild(login());
+      //return;
     }
     switch (window.location.hash) {
       case '#login':
@@ -37,4 +37,4 @@ const eventHandler = async () => await init();
   window.addEventListener('hashchange', eventHandler);
   window.addEventListener('load', eventHandler);
 
-  await init();
+  //await init();
