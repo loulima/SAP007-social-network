@@ -36,25 +36,28 @@ Caso queira, também pode ultilizar a usuária teste para entrar:
 <br>
 
 ### Planejamento
-
+<div align='left'>
 Para a realização do projeto, tomamos como referêcia o período de cinco sprints e ultilizamos da metodologia ágil para nos planejar. A ferramenta ultilizada para esse intuito foi o Notion. A partir das Histórias de Usuários, fomos criando as tarefas que executaríamos na sprint.
-
-<img src="src/assets/notion.png" width="500px" alt="Print planejamento Notion">
-
+<br>
+<img src="src/assets/imgs-readme/notion.png" width="500px" alt="Print planejamento Notion">
+<br>
+ 
 ## 2. Nosso Usuário
 
 A partir da pesquisa que realizamos através do Google Forms, conseguimos descobrir o que era fundamental ter em uma receita para nosso usuário, além de termos traçado seu perfil e problemas que encontra em sites costumeiros de receitas. Esses são os principais pontos encontrados:
  
-- Maioria das pessoas desenvolvedoras que particiaram da nossa pesquisa cozinha as próprias refeições em seu dia a dia
-- Muitas vezes, acabam comendo fast food ou lanches por falta de tempo de cozinhar
-- Quer dicas de pratos rápidos e nutritivos  
-- Busca receitas com ingredientes fáceis de encontrar
 
-<img src="src/assets/pesquisa1.png" width="450px" alt="Gráfico Pesquisa1">
+- Maioria das pessoas desenvolvedoras que particiaram da nossa pesquisa cozinha as próprias refeições em seu dia a dia <br>
+- Muitas vezes, acabam comendo fast food ou lanches por falta de tempo de cozinhar <br>
+- Quer dicas de pratos rápidos e nutritivos <br> 
+- Busca receitas com ingredientes fáceis de encontrar <br>
 
-<img src="src/assets/pesquisa2.png" width="450px" alt="Gráfico Pesquisa2">
+ 
+<img src="src/assets/imgs-readme/pesquisa1.png" width="450px" alt="Gráfico Pesquisa1">
 
-<img src="src/assets/pesquisa3.png" width="450px" alt="Gráfico Pesquisa3">
+<img src="src/assets/imgs-readme/pesquisa2.png" width="450px" alt="Gráfico Pesquisa2">
+
+<img src="src/assets/imgs-readme/pesquisa3.png" width="450px" alt="Gráfico Pesquisa3">
 
 ### Histórias de Usuário
 
@@ -67,10 +70,11 @@ Eu quero: poder criar uma conta com email e senha
 Para que: Para ter fácil acesso ao conteúdo do site nas próximas vezes que entrar.
 
 Critérios de aceitação (para as necessidades do usuário):
+ 
 - Ter uma tela de login que peça o cadastro a partir de um e-mail e de uma senha;
 - Validar os dados após o login;
 - Ter os dados salvos para o próximo acesso;
-    
+ 
 Definição de pronto(técnico):
   
 Criação e login de conta de usuário
@@ -104,6 +108,7 @@ Validações:
 - Ao publicar, deve ser validado se há conteúdo no input.
 
 Comportamento:
+ 
 - Criar Template das postagens
 - Ao recarregar o aplicativo, é necessário verificar se o usuário está logado antes de exibir o conteúdo (Observador)
 - Conseguir publicar um post.
@@ -151,10 +156,10 @@ Para este projeto, tínhamos que fazer primeiro um protótipo de baixa fidelidad
 Para os protótipos de alta fidelidade, ultilizamos o Figma.
 
 ### Mobile:
-<img src="src/assets/protótipo-mobile.png" width="500px" alt="Protótipo Mobile">
+<img src="src/assets/imgs-readme/protótipo-mobile.png" width="500px" alt="Protótipo Mobile">
 
 ### Desktop:
-<img src="src/assets/protótipo-desktop.svg" width="350px" alt="Protótipo Desktop">
+<img src="src/assets/imgs-readme/protótipo-desktop.svg" width="350px" alt="Protótipo Desktop">
 
 #### Alterações feitas no layout:
 Quando testamos a aplicação com plano de fundo ilustrado, na prática ficou não só poluído, como também complexo para adaptar na medida de diferentes telas. Por isso, optamos por usar uma cor sólida no fundo e criamos uma paleta de cores que fizesse sentido para uma rede social de receitas.
@@ -182,14 +187,15 @@ Não poderia deixar de ressaltar que no final, todos as linhas de código tem co
 
 ## 6. Tecnologias Ultilizadas
 
--JavaScript (vanilla)
--HTML5
--CSS3
--Node.js
--Jest (testes unitários do JavaScript)
--Firebase e Firestore
--Figma (protótipo)
+- JavaScript (vanilla)
+- HTML5
+- CSS3
+- Node.js
+- Jest (testes unitários do JavaScript)
+- Firebase e Firestore
+- Figma (protótipo)
 
+ 
 ### 7. Autoras: 
 
 #### Projeto desenvolvido por Louiza Lima e Isabela Gregoraci- SAP007 Laboratória 2022
@@ -214,3 +220,4 @@ Não poderia deixar de ressaltar que no final, todos as linhas de código tem co
     </td>
   </tr>
 </table>
+ </div> 
