@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-return-await */
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 import login from './pages/login.js';
 import register from './pages/register.js';
@@ -10,31 +8,27 @@ const mainContent = document.querySelector('#root');
 
 const init = async () => {
   mainContent.innerHTML = '';
-  onAuthStateChanged(auth, async (user) => {
-    const hash = window.location.hash;
-    if (hash !== '#login' && hash !== '#register' && user == null) {
-      window.location.hash = '#login';
-      //mainContent.appendChild(login());
-      //return;
+  onAuthStateChanged(auth, async (currentUser) => {
+    const path = window.location.pathname;
+    if (path !== '/login' && path !== '/register' && currentUser == null) {
+      window.history.pushState(null, '', '/login');
     }
-    switch (window.location.hash) {
-      case '#login':
+    switch (window.location.pathname) {
+      case '/login':
         mainContent.appendChild(login());
         break;
-      case '#register':
+      case '/register':
         mainContent.appendChild(register());
         break;
-      case '#feed':
+      case '/feed':
         mainContent.appendChild(await feed());
         break;
       default:
         mainContent.appendChild(login());
     }
   });
-  
 };
-const eventHandler = async () => await init();
-  window.addEventListener('hashchange', eventHandler);
-  window.addEventListener('load', eventHandler);
 
-  //await init();
+const eventHandler = async () => init();
+window.addEventListener('popstate', eventHandler);
+window.addEventListener('load', eventHandler);

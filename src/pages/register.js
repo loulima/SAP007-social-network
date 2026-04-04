@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import { createUser } from '../lib/auth.js';
 
 export default () => {
@@ -7,32 +6,30 @@ export default () => {
   register.innerHTML = `
       <form class="login-form">
           <input class="text-input" type="text" id="user-name" placeholder="Nome" required>
-  
           <input class="text-input" type="email" id="register-email" placeholder="Email" required>
-    
           <input class="text-input" type="password" id="register-password" placeholder="Senha" required>
-    
-          <input class="text-input" type="password" id="register-password" placeholder="Confirme sua senha"required>
-          
-          <button class="btn-login" type="submit" id="register-button"><a href="#feed">Cadastrar</a></button>
-          <p class="login-text">Já tem uma conta?<a href="#login"> Faça login</a></p>
+          <input class="text-input" type="password" id="register-password-confirm" placeholder="Confirme sua senha" required>
+          <span class="form-error" id="register-error"></span>
+          <button class="btn-login" type="submit" id="register-button">Cadastrar</button>
+          <p class="login-text">Já tem uma conta?<a href="/login"> Faça login</a></p>
       </form>
     `;
 
   const registerEmail = register.querySelector('#register-email');
   const registerPassword = register.querySelector('#register-password');
   const buttonRegister = register.querySelector('#register-button');
+  const registerError = register.querySelector('#register-error');
 
   buttonRegister.addEventListener('click', (e) => {
     e.preventDefault();
+    registerError.textContent = '';
     createUser(registerEmail.value, registerPassword.value)
       .then(() => {
-        window.location.hash = '#feed';
+        window.history.pushState(null, '', '/feed');
+        window.dispatchEvent(new PopStateEvent('popstate'));
       })
-      .catch((error) => {
-        const errorMessage = error.message;
-        alert('Algum erro ocorreu, tente novamente mais tarde');
-        return errorMessage;
+      .catch(() => {
+        registerError.textContent = 'Algum erro ocorreu, tente novamente mais tarde.';
       });
   });
   return register;

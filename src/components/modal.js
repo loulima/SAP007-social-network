@@ -7,10 +7,8 @@ export function modalEditPost(postObj, postContainer) {
   <div id="edit-modal" class="modal-content">
     <input class="title-edition" id="title-edit" type="text" placeholder="Título">${postObj.title}
     <textarea class="recipe-edition" id="recipe-edit" type="text" placeholder="Receita" wrap="hard">${postObj.recipe}</textarea>
-    
-    <button class="btn-update" id="cancel-update-btn" >Cancelar</button>
-    <button class="btn-update" id="update-btn" >Atualizar</button>
-    
+    <button class="btn-update" id="cancel-update-btn">Cancelar</button>
+    <button class="btn-update" id="update-btn">Atualizar</button>
     <span id="error-msg" class="error-message"></span>
   </div>
     `;
@@ -55,14 +53,12 @@ export function modalDeletePost(postObj, postContainer) {
   const template = `
   <div id="delete-content" class="modal-content">
       <p class="delete-message">Tem certeza que quer excluir essa receita?</p>
-
       <button class="delete-btn" id="yes-btn" type="submit">Excluir</button>
       <button class="cancel-delete-btn" id="no-btn" type="submit">Cancelar</button>
   </div>
   `;
   modalContainer.innerHTML = template;
 
-  const deleteModal = modalContainer.querySelector('#delete-modal');
   const confirmBtn = modalContainer.querySelector('#yes-btn');
   const declineBtn = modalContainer.querySelector('#no-btn');
 
@@ -76,12 +72,6 @@ export function modalDeletePost(postObj, postContainer) {
   declineBtn.addEventListener('click', (e) => {
     e.preventDefault();
     modalContainer.remove();
-  });
-
-  window.addEventListener('click', (e) => {
-    if (e.target === deleteModal) {
-      modalContainer.remove();
-    }
   });
 
   return modalContainer;

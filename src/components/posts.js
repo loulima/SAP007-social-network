@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import { likePost, dislikePost, getPosts } from '../lib/firestore.js';
 import { auth } from '../configs/config.firebase.js';
 import { modalEditPost, modalDeletePost } from './modal.js';
@@ -18,13 +17,13 @@ export function postComponent(postObj) {
         </button>
       </div>
 
-    <div class= "post-container">
+    <div class="post-container">
       <ul class="posts">
         <li>
           <h3 class="post-title" id="title-${postObj.id}">${postObj.title} </h3>
-          <h4 class="post-itens">Autor(a): </h3>
+          <h4 class="post-itens">Autor(a): </h4>
             <p> ${postObj.author} </p>
-          <h4 class="post-itens">Receita: </h3>
+          <h4 class="post-itens">Receita: </h4>
             <p id="recipe-${postObj.id}">  ${postObj.recipe}  </p>
             <p class="post-itens"> <strong> Data: </strong> ${postObj.date}</p>
         </li>
@@ -34,11 +33,11 @@ export function postComponent(postObj) {
     <div class='post-interations'>
       ${isAuthor ? `
         <button class='interact-btn' id='pencil-btn'><img class='edit-pencil' src='./assets/pencil.png'>Editar</button>
-        <button class='interact-btn' id="trash-btn"><img class='delete-trash' src='./assets/trash.png'>Apagar</button> 
+        <button class='interact-btn' id="trash-btn"><img class='delete-trash' src='./assets/trash.png'>Apagar</button>
         <span id="edit-post"></span>
         <span id="delete-post"></span>
       ` : ''}
-      </div> 
+      </div>
 
 </div>
     `;
@@ -65,17 +64,17 @@ export function postComponent(postObj) {
 
   likeButton.addEventListener('click', async (e) => {
     e.preventDefault();
-    const postLike = postObj.likes;
+    const currentLikes = postObj.likes;
 
-    if (!postLike.includes(auth.currentUser.email)) {
+    if (!currentLikes.includes(auth.currentUser.email)) {
       likePost(postObj.id, auth.currentUser.email);
-      postLike.push(auth.currentUser.email);
+      currentLikes.push(auth.currentUser.email);
       arrayLike += 1;
       countLikes.textContent = arrayLike;
     } else {
-      const likeUser = postLike.indexOf(auth.currentUser.email);
+      const likeUser = currentLikes.indexOf(auth.currentUser.email);
       dislikePost(postObj.id, auth.currentUser.email);
-      postLike.splice(likeUser, 1);
+      currentLikes.splice(likeUser, 1);
       arrayLike -= 1;
       countLikes.textContent = arrayLike;
     }

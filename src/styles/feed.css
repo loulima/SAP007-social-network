@@ -2,167 +2,139 @@
   margin-bottom: 70px;
 }
 
-.main-content {
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 20px;
-  box-shadow: 1px 2px 4px;
-}
+/* ── Feed layout ── */
 
 .feed-content {
-  top: 20%;
-  bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px 80px;
 }
 
 .new-post {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  margin-top: 40px;
-}
-
-.recipe-input {
-  background-color: #dee4e3;
-  width: 46.5vw;
-  margin: 3px;
-  font-size: 16px;
-  height: 4vh;
-  border: none;
-}
-
-.post-btn {
-  background-color: #FDAF51;
-  width: 15vw;
-  height: 6vh;
-  border-radius: 5px;
-  border: none;
-  margin-top: 20px;
-
-}
-
-.post-btn:hover {
-  box-shadow: 5px 5px 9px #acacac;
-}
-
-.new-post-writePost {
-  display: flex;
-  justify-content: center;
-  background-color: #dee4e3;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 8%;
-  padding: 30px;
-  width: 50vw;
-  border-radius: 10px;
-}
-
-.post-content {
-  background-color: #dee4e3;
-  width: 45vw;
-  height: 21vh;
-  border: none;
-  font-size: 22px;
-  padding: 5px 10px;
-  outline: none;
-  resize: none;
-  line-height: 2.3rem;
-
-}
-
-.nav-menu {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #eca99d88;
-  position: fixed;
-  bottom: 6%;
+  align-items: stretch;
   width: 100%;
-  height: 7%;
-  left: 0%;
+  max-width: 600px;
+  gap: 10px;
 }
+
+/* ── Logout button row ── */
 
 .logout-btn {
-  margin-left: 39em;
   background-color: #ec6951;
-  width: 6vw;
-  height: 4vh;
-  border-radius: 5px;
+  min-width: 72px;
+  min-height: 36px;
+  padding: 6px 14px;
+  border-radius: 6px;
   border: none;
-  margin-bottom: 1em;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
 }
 
 .logout-btn:hover {
-  box-shadow: 5px 5px 9px #acacac;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logout-btn a {
-  text-decoration: none;
   color: black;
+}
+
+/* ── Post form inputs ── */
+
+.recipe-input {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  background-color: #dee4e3;
+  border: 1.5px solid transparent;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.recipe-input:focus {
+  border-color: #fdaf51;
+}
+
+.post-content {
+  width: 100%;
+  min-height: 120px;
+  padding: 10px 12px;
+  background-color: #dee4e3;
+  border: 1.5px solid transparent;
+  border-radius: 6px;
+  font-size: 16px;
+  line-height: 1.6;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.post-content:focus {
+  border-color: #fdaf51;
+}
+
+.error-writepost {
+  color: rgb(174, 65, 65);
+  font-size: 13px;
+  min-height: 18px;
+}
+
+/* ── Section heading ── */
+
+.new-post-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 4px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #fdaf51;
+}
+
+/* ── Post button ── */
+
+.post-btn {
+  width: 100%;
+  min-height: 48px;
+  background-color: #fdaf51;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: box-shadow 0.2s, opacity 0.2s;
+}
+
+.post-btn:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0.93;
+}
+
+/* ── Posts list ── */
+
+.show-posts {
+  width: 100%;
+  margin-top: 16px;
 }
 
 .posts {
   list-style-type: none;
+  padding: 0;
 }
 
 .posts li {
   cursor: pointer;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #ccc;
 }
 
 .like-container {
   display: flex;
   justify-content: flex-end;
-  margin-left:auto;
-  margin-bottom: 1em;
-}
-
-@media (max-width:1279px) {
-  .logout-btn {
-    width: 7vh;
-    height: 2vh;
-    margin-left: 24em;
-  }
-}
-
-@media (max-width:768px) {
-  .logout-btn {
-    width: 7vw;
-    height: 2.5vh;
-    margin-left: 22em;
-  }
-}
-
-@media (max-width:480px) {
-  .nav-menu {
-    height: 8vh;
-  }
-
-  .logout-btn {
-    width: 15vw;
-    margin-left: 15em;
-  }
-
-  .recipe-input {
-    width: 70vw;
-    margin: 10px;
-  }
-
-  .post-content {
-    width: 70vw;
-    height: 25vh;
-    font-size: 15px;
-  }
-
-  .post-btn {
-    width: 30vw;
-    height: 5vh;
-  }
-
-  .new-post-writePost {
-    width: 65vw;
-    border-radius: 10px;
-  }
+  margin-top: 6px;
+  margin-bottom: 10px;
 }

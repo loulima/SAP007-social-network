@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-shadow */
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -14,36 +12,28 @@ const provider = new GoogleAuthProvider();
 
 export function signinGoogle() {
   return signInWithPopup(auth, provider)
-    .then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
-      return user;
-    });
+    .then((result) => result.user);
 }
 
 export function signIn(email, password) {
   return signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      return user;
-    });
+    .then((userCredential) => userCredential.user);
 }
+
 export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    return user;
-  });
+  .then((userCredential) => userCredential.user);
 
 export function userLogout() {
   signOut(auth).then(() => {
-    window.location.hash = '#login';
+    window.history.pushState(null, '', '/login');
+    window.dispatchEvent(new PopStateEvent('popstate'));
   }).catch((error) => error);
 }
 
 export const user = auth.currentUser;
+
 export function checkLogin(callback) {
-  onAuthStateChanged(auth, (user) => {
-    callback(user !== null);
+  onAuthStateChanged(auth, (currentUser) => {
+    callback(currentUser !== null);
   });
 }
